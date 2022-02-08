@@ -5,4 +5,5 @@ import com.example.domain.models.LoginResponseModel
 
 interface ProfileRepository {
     suspend fun login(loginModel: LoginModel): LoginResponseModel
+    suspend fun getSatus(): Boolean
 }
