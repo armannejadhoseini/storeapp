@@ -1,4 +1,4 @@
-package com.example.store
+package com.example.data.utils
 
 import com.example.data.R
 

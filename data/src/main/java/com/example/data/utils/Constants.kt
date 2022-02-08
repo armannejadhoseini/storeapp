@@ -1,6 +1,4 @@
-package com.example.data
-
-import com.example.store.NavigationItem
+package com.example.data.utils
 
 object Constants {
     val BottomNavigationItems = listOf(
@@ -9,4 +7,6 @@ object Constants {
         NavigationItem.Cart,
         NavigationItem.Profile
     )
+
+    val BaseUrl = "http://armanwebgroup.ir/api/"
 }

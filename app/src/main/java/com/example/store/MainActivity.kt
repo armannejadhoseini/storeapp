@@ -13,19 +13,24 @@ import androidx.compose.ui.res.colorResource
 import com.example.store.ui.theme.StoreTheme
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.data.Constants
+import com.example.data.utils.Constants
+import com.example.data.utils.NavigationItem
 import com.example.store.compose.Cart
 import com.example.store.compose.Category
 import com.example.store.compose.Home
 import com.example.store.compose.Profile
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -86,7 +91,8 @@ fun Navigation() {
             }
 
             composable(NavigationItem.Profile.route) {
-                Profile(navController)
+                val viewModel = hiltViewModel<ProfileViewModel>()
+                Profile(navController, viewModel)
             }
         }
     }
