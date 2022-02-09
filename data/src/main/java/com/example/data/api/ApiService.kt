@@ -12,18 +12,16 @@ import retrofit2.http.POST
 interface ApiService {
 
     @POST("usrers/signin/")
-    @FormUrlEncoded
     suspend fun login(
         @Body loginEntity: LoginEntity
     ): Response<LoginResponse>
 
 
-    @POST("users/signup")
+    @POST("users/signup/")
     @FormUrlEncoded
     suspend fun register(
         @Body registerEntity: RegisterEntity
-    ):Response<RegisterResponse>
-
+    ): Response<RegisterResponse>
 
 
 }

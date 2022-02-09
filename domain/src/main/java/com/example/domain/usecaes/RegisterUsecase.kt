@@ -4,5 +4,5 @@ import com.example.domain.models.RegisterModel
 import com.example.domain.models.RegisterResponseModel
 
 interface RegisterUsecase {
-    suspend fun register(registerModel: RegisterModel):RegisterResponseModel
+    suspend fun register(registerModel: RegisterModel): RegisterResponseModel
 }

@@ -13,7 +13,6 @@ import androidx.compose.ui.res.colorResource
 import com.example.store.ui.theme.StoreTheme
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
@@ -25,7 +24,7 @@ import com.example.data.utils.NavigationItem
 import com.example.store.compose.Cart
 import com.example.store.compose.Category
 import com.example.store.compose.Home
-import com.example.store.compose.Profile
+import com.example.store.layout.Profile.ProfileGraph
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -90,10 +89,7 @@ fun Navigation() {
                 Cart(navController)
             }
 
-            composable(NavigationItem.Profile.route) {
-                val viewModel = hiltViewModel<ProfileViewModel>()
-                Profile(navController, viewModel)
-            }
+            ProfileGraph(navController)
         }
     }
 }

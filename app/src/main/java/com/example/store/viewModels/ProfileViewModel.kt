@@ -1,4 +1,4 @@
-package com.example.store
+package com.example.store.viewModels
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -19,9 +19,6 @@ class ProfileViewModel @Inject constructor(
     val getStatusUsecaseImpl: LoginStatusUsecaseImpl
 ) : ViewModel() {
 
-    private var _loginData = MutableLiveData<LoginModel>()
-    val loginData get() = _loginData
-
     private var _loginStatus = MutableLiveData<Boolean>()
     val loginStatus get() = _loginStatus
 
@@ -31,14 +28,23 @@ class ProfileViewModel @Inject constructor(
 
     fun getLoginStatus() {
         viewModelScope.launch(Dispatchers.IO) {
-            loginStatus.postValue(getStatusUsecaseImpl.getSatus())
+            _loginStatus.postValue(getStatusUsecaseImpl.getSatus().value)
         }
     }
 
-    fun login() {
+    fun login(email: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = loginUsecaseImpl.login(loginData.value!!)
-            Log.d("TAG", "login: ${result.Status}")
+            try {
+                val result = loginUsecaseImpl.login(
+                    LoginModel(
+                        email,
+                        password
+                    )
+                )
+                Log.d("TAG", "login: ${result.Status}")
+            } catch (e: Exception) {
+                Log.d("TAG", "login: $e")
+            }
         }
     }
 

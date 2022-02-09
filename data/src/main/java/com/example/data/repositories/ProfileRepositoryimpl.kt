@@ -1,6 +1,7 @@
 package com.example.data.repositories
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import com.example.data.api.ApiService
 import com.example.data.dao.UserDao
 import com.example.data.db.StoreDatabase
@@ -44,7 +45,7 @@ class ProfileRepositoryimpl @Inject constructor(
         }
     }
 
-    override suspend fun getSatus(): Boolean {
+    override suspend fun getSatus(): LiveData<Boolean> {
         return userDao.getUserStatus()
     }
 }

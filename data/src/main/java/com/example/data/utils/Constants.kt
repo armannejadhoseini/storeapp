@@ -8,5 +8,5 @@ object Constants {
         NavigationItem.Profile
     )
 
-    val BaseUrl = "http://armanwebgroup.ir/api/"
+    val BaseUrl = "http://armanwebgroup.ir/"
 }

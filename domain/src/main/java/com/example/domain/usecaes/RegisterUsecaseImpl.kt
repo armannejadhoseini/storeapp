@@ -7,8 +7,9 @@ import javax.inject.Inject
 
 class RegisterUsecaseImpl @Inject constructor(
     val repository: ProfileRepository
-):RegisterUsecase {
+) : RegisterUsecase {
     override suspend fun register(registerModel: RegisterModel): RegisterResponseModel {
-        return repository.register(registerModel)
+        //return repository.register(registerModel)
+        TODO("Not yet implemented")
     }
 }

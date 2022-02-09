@@ -4,5 +4,5 @@ data class RegisterResponseModel(
     var name: String,
     var email: String,
     var password: String,
-    var id: Int
+    var id: String
 )
