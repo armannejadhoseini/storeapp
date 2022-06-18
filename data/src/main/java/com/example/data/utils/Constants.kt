@@ -1,12 +1,7 @@
 package com.example.data.utils
 
 object Constants {
-    val BottomNavigationItems = listOf(
-        NavigationItem.Home,
-        NavigationItem.Category,
-        NavigationItem.Cart,
-        NavigationItem.Profile
-    )
 
-    val BaseUrl = "http://armanwebgroup.ir/"
+    val BASE_URL = "https://fakestoreapi.com/"
+    val PRODUCTS_LIMIT = 20
 }

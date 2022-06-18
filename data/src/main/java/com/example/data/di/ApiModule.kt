@@ -2,7 +2,7 @@ package com.example.data.di
 
 import android.content.Context
 import com.example.data.api.ApiService
-import com.example.data.utils.Constants.BaseUrl
+import com.example.data.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,11 +29,11 @@ class ApiModule {
     }
 
     @Provides
-    fun providesRetrofit(okhhtpClient: OkHttpClient): Retrofit {
+    fun providesRetrofit(okhttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BaseUrl)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            .client(okhhtpClient)
+            .client(okhttpClient)
             .build()
     }
 

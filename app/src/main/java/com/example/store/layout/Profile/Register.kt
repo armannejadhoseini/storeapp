@@ -9,10 +9,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.store.viewModels.ProfileViewModel
+import com.example.store.viewModels.HomeViewModel
 
 @Composable
-fun Register(navController: NavController, viewModel: ProfileViewModel) {
+fun Register(navController: NavController, viewModel: HomeViewModel) {
     var username by remember {
         mutableStateOf("")
     }

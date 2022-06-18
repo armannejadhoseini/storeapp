@@ -1,27 +1,31 @@
 package com.example.data.api
 
-import com.example.data.entities.LoginEntity
-import com.example.data.entities.LoginResponse
-import com.example.data.entities.RegisterEntity
-import com.example.data.entities.RegisterResponse
+import com.example.data.entities.AddToCartResponseModel
+import com.example.data.entities.ProductResponseModel
+import com.example.data.entities.ProductsResponseModel
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import com.example.data.utils.Constants.PRODUCTS_LIMIT
+import com.example.domain.models.AddCartModel
+import retrofit2.http.*
 
 interface ApiService {
 
-    @POST("usrers/signin/")
-    suspend fun login(
-        @Body loginEntity: LoginEntity
-    ): Response<LoginResponse>
+    @GET("products/")
+    suspend fun getAllProducts(
+        @Query("limit") limit: Int = PRODUCTS_LIMIT
+    ): Response<List<ProductsResponseModel>>
 
+    @GET("products/{id}/")
+    suspend fun getProduct(
+        @Path("id") id: Int
+    ): Response<ProductResponseModel>
 
-    @POST("users/signup/")
-    @FormUrlEncoded
-    suspend fun register(
-        @Body registerEntity: RegisterEntity
-    ): Response<RegisterResponse>
+    @GET("products/categories/")
+    suspend fun getAllCategories(): Response<List<String>>
 
+    @POST("carts/")
+    suspend fun addToCart(
+        @Body item: AddCartModel
+    ): Response<AddToCartResponseModel>
 
 }

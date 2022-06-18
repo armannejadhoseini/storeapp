@@ -102,4 +102,7 @@ dependencies {
 
     //flow
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
+
+    //glide
+    implementation "com.github.skydoves:landscapist-glide:1.4.9"
 }
